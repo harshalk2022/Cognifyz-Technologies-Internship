@@ -1,4 +1,19 @@
-target/
+# Compiled class file
+*.class
+.metadata
+.sonarlint
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -15,3 +30,43 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# Compiled class files
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# STS metadata and project settings
+.project
+.settings/
+.apt_generated
+.classpath
+
+# Maven specific
+/target/
+pom.xml.tag
+
+# Gradle specific
+.gradle
+/build
+
+# Intellij Idea
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# Netbeans specific
+/nbproject/
+
+# Temporary files often created by operating systems
+._*
+
+#Cache files
+*~
