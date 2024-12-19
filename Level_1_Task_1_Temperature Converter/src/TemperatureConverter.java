@@ -14,25 +14,25 @@ public class TemperatureConverter {
 		System.out.print("Enter the unit of measurement (C: Celsius, F: Fahrenheit): ");
 		char unit = scanner.next().toUpperCase().charAt(0);
 
-		// Perform the conversion
+		// Perform conversion
 		if (unit == 'C') {
-			
-			// Convert Celsius to Fahrenheit
+
+			// Convert from Celsius to Fahrenheit
 			double fahrenheit = (temperature * 9 / 5) + 32;
-			System.out.printf("The temperature %.2f degrees Celsius = %.2f degrees Fahrenheit.%n",
-					temperature, fahrenheit);
-	
+			System.out.printf("\nThe temperature %.2f degrees Celsius = %.2f degrees Fahrenheit.%n", temperature,
+					fahrenheit);
+
 		} else if (unit == 'F') {
-		
-			// Convert Fahrenheit to Celsius
+
+			// Convert from Fahrenheit to Celsius
 			double celsius = (temperature - 32) * 5 / 9;
-			System.out.printf("The temperature %.2f degrees Fahrenheit = %.2f degrees Celsius.%n",
-					temperature, celsius);
-		
+			System.out.printf("\nThe temperature %.2f degrees Fahrenheit = %.2f degrees Celsius.%n", temperature,
+					celsius);
+
 		} else {
-		
-			System.out.println("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.");
-		
+
+			System.out.println("\nInvalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.");
+
 		}
 
 		scanner.close();

@@ -1,14 +1,3 @@
-// Task: Tic-Tac-Toe Game
-
-// Description: Implement a two-player tic-tac-toe
-// game. Display the game board and prompt each
-// player to enter their moves. Check for a winning
-// condition or a draw after each move, and display
-// the result accordingly. Allow the players to play
-// multiple rounds if desired.
-// Skills: Arrays or matrices, loops, conditional
-// statements
-
 import java.util.*;
 
 public class TicTacToe {
@@ -16,6 +5,40 @@ public class TicTacToe {
 	private final String[][] board = new String[SIZE][SIZE];
 	private final List<String> players = Arrays.asList("O", "X");
 	private int currentPlayerIndex = 0;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		do {
+			TicTacToe game = new TicTacToe();
+
+			while (true) {
+				System.out.println("###### Player " + (game.currentPlayerIndex + 1) + " ######");
+				System.out.print("Enter Row (1-3): ");
+				int row = sc.nextInt() - 1;
+				System.out.print("Enter Col (1-3): ");
+				int col = sc.nextInt() - 1;
+
+				if (!game.makeMove(row, col))
+					continue;
+
+				game.printBoard();
+				if (!game.checkGameState().equals("PROGRESS"))
+					break;
+			}
+
+			System.out.println("\nDo you want to play again? (yes/no)");
+			String response = sc.next().trim().toLowerCase();
+
+			if (!response.equals("yes")) {
+				System.out.println("Thanks for playing!");
+				break;
+			}
+		} while (true);
+
+		sc.close();
+
+	}
 
 	public TicTacToe() {
 		for (int i = 0; i < SIZE; i++) {
@@ -54,7 +77,7 @@ public class TicTacToe {
 	}
 
 	private boolean checkWinner() {
-		// Check rows, cols, and diagonals
+		// check rows,, cols, and diagonals
 		for (int i = 0; i < SIZE; i++) {
 
 			Boolean rowCheck = checkLine(board[i][0], board[i][1], board[i][2]);
@@ -102,37 +125,4 @@ public class TicTacToe {
 		System.out.println();
 	}
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
-		do {
-			TicTacToe game = new TicTacToe();
-
-			while (true) {
-				System.out.println("###### Player " + (game.currentPlayerIndex + 1) + " ######");
-				System.out.print("Enter Row (1-3): ");
-				int row = sc.nextInt() - 1;
-				System.out.print("Enter Col (1-3): ");
-				int col = sc.nextInt() - 1;
-
-				if (!game.makeMove(row, col))
-					continue;
-
-				game.printBoard();
-				if (!game.checkGameState().equals("PROGRESS"))
-					break;
-			}
-
-			System.out.println("\nDo you want to play again? (yes/no)");
-			String response = sc.next().trim().toLowerCase();
-
-			if (!response.equals("yes")) {
-				System.out.println("Thanks for playing!");
-				break;
-			}
-		} while (true);
-
-		sc.close();
-
-	}
 }

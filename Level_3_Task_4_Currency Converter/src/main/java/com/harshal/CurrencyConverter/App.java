@@ -13,6 +13,7 @@ public class App {
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Currency Converter!");
 		Scanner scanner = new Scanner(System.in);
+
 		// Fetch available currency codes
 		Map<String, String> currencies = fetchCurrencies();
 		if (currencies == null || currencies.isEmpty()) {
@@ -20,13 +21,17 @@ public class App {
 			scanner.close();
 			return;
 		}
+
 		// Get base currency from user
 		String baseCurrency = getCurrencyInput(scanner, currencies, "Enter the base currency code: ");
+
 		// Get amount in base currency
 		System.out.print("Enter the amount in " + baseCurrency.toUpperCase() + ": ");
 		double amount = Double.parseDouble(scanner.nextLine());
+
 		// Get target currency from user
 		String targetCurrency = getCurrencyInput(scanner, currencies, "Enter the target currency code: ");
+
 		// Fetch exchange rate
 		double exchangeRate = fetchExchangeRate(baseCurrency, targetCurrency);
 		if (exchangeRate == 0) {
@@ -34,6 +39,7 @@ public class App {
 			scanner.close();
 			return;
 		}
+
 		// Perform conversion
 		double convertedAmount = amount * exchangeRate;
 		System.out.printf("\n%.2f %s is equal to %.2f %s\n", amount, baseCurrency.toUpperCase(), convertedAmount,
@@ -48,7 +54,8 @@ public class App {
 		if (response == null) {
 			return null;
 		}
-		// Parse response into Map<String, String>
+
+		// Parse response into map
 		JSONObject jsonObject = new JSONObject(response);
 		Map<String, String> currencies = new HashMap<>();
 		for (String key : jsonObject.keySet()) {

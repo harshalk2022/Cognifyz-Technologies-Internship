@@ -2,11 +2,10 @@ import java.io.*;
 import java.util.Scanner;
 
 public class FileEncryptionDecryption {
-	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
 
-		// Prompt user for operation
+		// asking to choose operation
 		System.out.println("Choose an operation:");
 		System.out.println("1. Encrypt a file");
 		System.out.println("2. Decrypt a file");
@@ -22,16 +21,16 @@ public class FileEncryptionDecryption {
 			choice = "decrypt";
 			shift = -3;
 		} else {
-			throw new Exception("Please choose correct input.");
+			throw new Exception("Please choose correct input");
 		}
 
-		scanner.nextLine(); // Consume the newline character
+		scanner.nextLine();
 
-		// Prompt user for file path
+		// taking file path
 		System.out.print("Enter the file path: ");
 		String inputFilePath = scanner.nextLine();
 
-		// Determine the output file name
+		// output file name
 		File inputFile = new File(inputFilePath);
 		String outputFilePath = inputFile.getParent() + "\\" + choice + "_" + inputFile.getName();
 

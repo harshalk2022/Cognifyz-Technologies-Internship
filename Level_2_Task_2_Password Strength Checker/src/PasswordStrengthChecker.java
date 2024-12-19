@@ -4,30 +4,30 @@ public class PasswordStrengthChecker {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		// Prompt the user to input a password
+		// taking input - user password
 		System.out.print("Enter a password to check its strength: ");
 		String password = scanner.nextLine();
 
-		// Evaluate password strength
+		// evaluate password strength
 		String strength = evaluatePasswordStrength(password);
 
-		// Provide feedback
+		// provide feedback
 		System.out.println("Password Strength: " + strength);
 
 		scanner.close();
 	}
 
 	public static String evaluatePasswordStrength(String password) {
-		// Criteria flags
+		// criteriaa flags
 		boolean hasUppercase = false;
 		boolean hasLowercase = false;
 		boolean hasDigit = false;
 		boolean hasSpecialChar = false;
 
-		// Check for special characters
+		// check for special characters
 		String specialCharacters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
 
-		// Evaluate password characters
+		// evaluating password characters
 		for (char c : password.toCharArray()) {
 			if (Character.isUpperCase(c)) {
 				hasUppercase = true;
@@ -40,7 +40,7 @@ public class PasswordStrengthChecker {
 			}
 		}
 
-		// Determine password strength
+		// disply password strength
 		if (password.length() >= 12 && hasUppercase && hasLowercase && hasDigit && hasSpecialChar) {
 			return "Very Strong";
 		} else if (password.length() >= 8 && hasUppercase && hasLowercase && hasDigit) {
